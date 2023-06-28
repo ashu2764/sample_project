@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}HOME{% endblock title %}
+{% block content %}
+
+
+{% comment %} <div class="conatiner m-4">
+
+    <div class="row mt-5">
+        {% for cats in cats %}
+        <div class="col-lg-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{cats.image.url}}" height="300px" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{cats.title}}</h5>
+              <p class="card-text">{{cats.descripition}}</p>
+              <a href="#" class="btn btn-primary">View</a>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    {% endfor %}    
+</div>
+    
+</div>
+
+</div> {% endcomment %}
+
+
+<div class="owl-theme owl-loaded">
+    <div class="owl-carousel">
+
+        {% for cats in cats %}
+
+        <div class="card m-1 p-1"  >
+            <div class="img-container">
+                 <img src="{{cats.image.url}}" alt="" class='responsive-img' height='250px' width="400px">
+            </div>
+            <div class="card-content">
+                <div class="card-title text-center">
+                     {{cats.title}}
+                </div>
+                  <p class="text-center">{{cats.description|truncatewords:5|safe}}</p>
+            <div class="container text-center">
+                 <a href="/cats/{{cats.url}}" class="btn bg-primary">VIEW</a>
+            </div>
+        </div>
+        
+    </div>
+
+    {% endfor %}
+    {% comment %} <div class="owl-nav">
+        <div class="owl-prev">prev</div>
+        <div class="owl-next">next</div>
+    </div> {% endcomment %}
+    
+</div> 
+
+
+
+
+
+<div class="container">
+    {% for i in posts  %}
+    <div class="row">
+
+
+{% comment %}  
+            
+<div class="container-fluid mt-4 " >
+    <div >
+        <div>
+            <div >
+                <img class="card-img-top img-fluid" src="{{i.image.url}}" alt="Card image cap">
+            </div>
+            <div class="card mt-2 p-2" style="width: 18rem;">
+                
+                <div class="card-body">
+                 
+                  <p class="card-text">{{i.content|truncatewords:10|safe}}</p>
+                  <a href="/blog/{{i.url}}" class="btn btn-primary">Readmore...</a>
+                </div>
+              </div>
+           
+            
+          
+          
+
+    </div>
+
+</div> {% endcomment %}
+<center>
+    
+    <div class="col-sm-8">
+
+        <div class="card " style="width: 18rem;">
+            <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{cats.title}}</h5>
+            <p class="card-text">{{i.content|truncatewords:10|safe}}</p>
+            <a href="/blog/{{i.url}}" class="btn btn-primary">READMORE..</a>
+        </div>
+    </div>
+</div>  
+</div>
+{% endfor %}  
+</div>
+
+</center>
+
+
+{% endblock content %}
